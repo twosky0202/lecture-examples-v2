@@ -21,13 +21,13 @@ public class Cart {
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CartItem> items = new ArrayList<>();
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
+//    @OneToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "user_id")
+    private Long userId;
 
-    public static Cart create(User user) {
+    public static Cart create(Long userId) {
         Cart cart = new Cart();
-        cart.user = user;
+        cart.userId = userId;
         return cart;
     }
 
