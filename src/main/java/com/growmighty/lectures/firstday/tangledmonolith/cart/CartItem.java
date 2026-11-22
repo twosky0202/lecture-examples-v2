@@ -32,7 +32,23 @@ public class CartItem {
         return cartItem;
     }
 
+    void addQuantity(int quantity) {
+        checkQuantity(quantity);
+        this.quantity += quantity;
+    }
+
+    void changeQuantity(int quantity) {
+        checkQuantity(quantity);
+        this.quantity = quantity;
+    }
+
     void assignCart(Cart cart) {
         this.cart = cart;
+    }
+
+    private void checkQuantity(int quantity) {
+        if (quantity < 1) {
+            throw new IllegalArgumentException("1개 이상의 상품을 담아주세요.");
+        }
     }
 }
